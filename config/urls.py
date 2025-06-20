@@ -15,7 +15,7 @@ from drf_spectacular.views import (
     SpectacularSwaggerView,
 )
 
-from livraria.views import CategoriaViewSet, EditoraViewSet, AutorViewSet, LivroViewSet
+from livraria.views import CategoriaViewSet, CompraViewSet, EditoraViewSet, AutorViewSet, LivroViewSet
 from usuario import views
 from usuario.router import router as usuario_router
 
@@ -25,6 +25,7 @@ router.register(r"categorias", CategoriaViewSet)
 router.register(r"Editoras", EditoraViewSet)
 router.register(r"Autores", AutorViewSet)
 router.register(r"Livros", LivroViewSet)
+router.register(r"Compras", CompraViewSet)
 
 
 urlpatterns = [
