@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-import os
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -133,7 +133,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # MEU CODIGO DAQ EM DIANTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-
+import os
+from dotenv import load_dotenv
 CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
@@ -159,3 +160,20 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "API para gerenciamento de livraria, incluindo endpoints e documentação.",
     "VERSION": "1.0.0",
 }
+
+
+load_dotenv()
+
+MODE = os.getenv("MODE")
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+DEBUG = os.getenv("DEBUG", "False")
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:3000", "http://localhost:8000", "https://*.fl0.io/"]
+...
+
+if MODE in ["PRODUCTION", "MIGRATE"]:
+    MEDIA_URL = '/media/'
+else:
+    MY_IP = os.getenv("MY_IP", "127.0.0.1")
+    MEDIA_URL = f"http://{MY_IP}:19003/media/"

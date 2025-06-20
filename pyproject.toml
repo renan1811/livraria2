@@ -3,9 +3,9 @@ name = "livraria2"
 version = "0.1.0"
 description = "Default template for PDM package"
 authors = [
-    {name = "", email = ""},
+    {name = ""},
 ]
-dependencies = ["django>=5.2.3", "djangorestframework>=3.16.0", "django-cors-headers>=4.7.0", "djangorestframework-simplejwt>=5.5.0", "setuptools>=80.9.0", "Pillow>=11.2.1", "python-magic>=0.4.27; sys_platform == \"linux\"", "python-magic-bin>=0.4.14; sys_platform == \"win32, darwin\"", "drf-spectacular>=0.28.0"]
+dependencies = ["django>=5.2.3", "djangorestframework>=3.16.0", "django-cors-headers>=4.7.0", "djangorestframework-simplejwt>=5.5.0", "setuptools>=80.9.0", "Pillow>=11.2.1", "python-magic>=0.4.27; sys_platform == \"linux\"", "python-magic-bin>=0.4.14; sys_platform == \"win32, darwin\"", "drf-spectacular>=0.28.0", "python-dotenv>=1.1.0", "netifaces>=0.11.0"]
 requires-python = "==3.12.*"
 readme = "README.md"
 license = {text = "MIT"}
@@ -13,3 +13,7 @@ license = {text = "MIT"}
 
 [tool.pdm]
 distribution = false
+
+[tool.pdm.scripts]
+pre_dev = "python ./scripts/set_my_ip.py"
+dev = "python manage.py runserver 0.0.0.0:19003"
