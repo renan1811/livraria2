@@ -8,8 +8,12 @@ class ItensCompraAdmin(admin.ModelAdmin):
     list_display = ['id', 'compra', 'livro', 'quantidade']
     search_fields = ['livro__titulo', 'compra__id']
     list_filter = ['compra']
+
+class ItensCompraInline(admin.TabularInline):
+    model = ItensCompra
 @admin.register(Compra)
-class Compra(admin.ModelAdmin):
+class CompraAdmin(admin.ModelAdmin):
+    inlines = [ItensCompraInline]
     list_display = ("usuario", "status")
     ordering = ("-id",)
     list_per_page = 25
