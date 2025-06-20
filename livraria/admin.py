@@ -1,8 +1,13 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Categoria, Autor, Livro, Editora
+from .models import Categoria, Autor, Livro, Editora, Compra
 
+@admin.register(Compra)
+class Compra(admin.ModelAdmin):
+    list_display = ("usuario", "status")
+    ordering = ("-id",)
+    list_per_page = 25
 @admin.register(Autor)
 class AutorAdmin(admin.ModelAdmin):
     list_display = ('nome', 'email')
