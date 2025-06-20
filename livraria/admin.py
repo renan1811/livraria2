@@ -1,8 +1,13 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Categoria, Autor, Livro, Editora, Compra
+from .models import Categoria, Autor, Livro, Editora, Compra,ItensCompra
 
+@admin.register(ItensCompra)
+class ItensCompraAdmin(admin.ModelAdmin):
+    list_display = ['id', 'compra', 'livro', 'quantidade']
+    search_fields = ['livro__titulo', 'compra__id']
+    list_filter = ['compra']
 @admin.register(Compra)
 class Compra(admin.ModelAdmin):
     list_display = ("usuario", "status")
