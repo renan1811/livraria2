@@ -6,7 +6,7 @@ from .models import Categoria, Autor, Livro, Editora
 @admin.register(Autor)
 class AutorAdmin(admin.ModelAdmin):
     list_display = ('nome', 'email')
-    search_fields = ('nome', 'email')
+    search_fields = ('nome', 'email', 'foto')
     list_filter = ('nome',)
     ordering = ('nome', 'email')
 

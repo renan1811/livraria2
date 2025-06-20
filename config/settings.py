@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-evjay6w*j=k6o3psf*pl4pepv$a_w9#s!-@uu-htac%yxx5ah)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
 
 ALLOWED_HOSTS = []
 
@@ -136,17 +136,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import os
 from dotenv import load_dotenv
 CORS_ALLOW_ALL_ORIGINS = True
-
-REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticated",
-    ],
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
-    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
-
-}
+############################################################
+#REST_FRAMEWORK = {
+#    "DEFAULT_PERMISSION_CLASSES": [
+#        "rest_framework.permissions.IsAuthenticated",
+#    ],
+#    "DEFAULT_AUTHENTICATION_CLASSES": (
+ #       "rest_framework_simplejwt.authentication.JWTAuthentication",
+ #   ),
+ #   "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+#
+#}
 
 AUTH_USER_MODEL = "usuario.Usuario"
 
@@ -166,7 +166,7 @@ load_dotenv()
 
 MODE = os.getenv("MODE")
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY", 'django-insecure-evjay6w*j=k6o3psf*pl4pepv$a_w9#s!-@uu-htac%yxx5ah)')
 DEBUG = os.getenv("DEBUG", "False")
 ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = ["http://localhost:3000", "http://localhost:8000", "https://*.fl0.io/"]

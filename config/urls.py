@@ -16,10 +16,11 @@ from drf_spectacular.views import (
 )
 
 from livraria.views import CategoriaViewSet, EditoraViewSet, AutorViewSet, LivroViewSet
-
+from usuario import views
 from usuario.router import router as usuario_router
 
 router = DefaultRouter()
+router.register(r"usuario", views.UsuarioViewSet)
 router.register(r"categorias", CategoriaViewSet)
 router.register(r"Editoras", EditoraViewSet)
 router.register(r"Autores", AutorViewSet)
